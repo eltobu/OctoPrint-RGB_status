@@ -137,7 +137,7 @@ def theater_chase_rainbow(strip, color, queue, delay=50, iterations=1, reverse=F
 
 def pulse(strip, color, queue, delay, iterations=1, reverse=False):
     for i in range(255):
-        scaled_color = map(lambda x: x * 255 / i, color)
+        scaled_color = map(lambda x: x * i / 255, color)
         for p in range(strip.numPixels()):
             strip.setPixelColorRGB(p, *rgb_to_raw(scaled_color))
         strip.show()
@@ -145,7 +145,7 @@ def pulse(strip, color, queue, delay, iterations=1, reverse=False):
             return
         time.sleep(delay/1000.0)
     for i in reversed(range(255)):
-        scaled_color = map(lambda x: x * 255 / i, color)
+        scaled_color = map(lambda x: x * i / 255, color)
         for p in range(strip.numPixels()):
             strip.setPixelColorRGB(p, *rgb_to_raw(scaled_color))
         strip.show()
