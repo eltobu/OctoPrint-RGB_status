@@ -21,3 +21,6 @@ def hex_to_rgb(h):
     h = h[1:7]
     return tuple(int(h[i:i+2], 16) for i in (0, 2 ,4))
 
+
+def rgb_to_raw(c):
+	return (int(pow(c[0], 2) / 256), int(pow(c[1], 2) / 256), int(pow(c[2], 2) / 256))
